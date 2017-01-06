@@ -21,25 +21,13 @@ class ViewController: UIViewController {
         print("view did load")
     }
     
-    override func viewDidAppear(animated: Bool) {
-        print("view did appear")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func Speech(sender: AnyObject) {
+    // MARK: - Action
+    @IBAction func Speech(_ sender: AnyObject) {
         uttering = AVSpeechUtterance(string: textField.text)
         uttering.rate = 0.3
         
         uttering.pitchMultiplier = 0.25
         uttering.volume = 1.0
-        synth.speakUtterance(uttering)
-        
-        
+        synth.speak(uttering)
     }
-    
 }
-
